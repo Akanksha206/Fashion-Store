@@ -25,6 +25,8 @@ import Jewellery from './components/Accessories/Jewellery'
 import Shoes from './components/Accessories/Shoes'
 import Watches from './components/Accessories/Watches'
 import LoginPage from './components/Icons/LoginPage'
+import ProfileIcon from './components/Icons/ProfileIcon'
+
 const router =createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -50,7 +52,8 @@ const router =createBrowserRouter(
     <Route path='Jewellery' element={<Jewellery/>}/>
     <Route path='Shoes' element={<Shoes/>}/>
     <Route path='Watches' element={<Watches/>}/>
-    <Route path="/login" element={<LoginPage />} />
+    <Route path='login' element={<LoginPage/>}/>
+    <Route path='login' element={<ProfileIcon/>}/> 
     </>
   )
 ) 

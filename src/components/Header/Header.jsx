@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../styles/style.css';
 
-
 const Header = () => {
     return (
         <header>
@@ -69,8 +68,7 @@ const Header = () => {
                 <i className="fas fa-user"></i>
             </div>
         </div>
-
-       
+           
     </header>
     );
 };
