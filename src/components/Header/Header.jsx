@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../styles/style.css';
 
 
@@ -10,10 +10,10 @@ const Header = () => {
         <div className="logo"><img src="/src/assets/images/download.png" alt="logo" /></div>
             <ul>
                 <li className="nav-item">
-                    <Link to="/feed" className='active'>FEED</Link>
+                    <NavLink to="/feed" className='active'>FEED</NavLink>
                 </li>
                 <li className="nav-item">
-                    <Link to="/women">WOMEN</Link>
+                    <Link to="/ShortKurtis">WOMEN</Link>
                     <ul className="dropDown">
                         <li><Link to="/ShortKurtis">Short Kurtis</Link></li>
                         <li><Link to="/TeesandCrops">Tees and Crops</Link></li>
@@ -25,7 +25,7 @@ const Header = () => {
                 </li>
 
                 <li className="nav-item">
-                    <Link to="/men">MEN</Link>
+                    <Link to="/Floral">MEN</Link>
                     <ul className="dropDown">
                         <li><Link to="/Floral">Floral Shirts</Link></li>
                         <li><Link to="/Chequered">Chequered Shirts</Link></li>
@@ -37,7 +37,7 @@ const Header = () => {
                 </li>
 
                   <li className="nav-item">
-                    <Link to="/kids">KIDS</Link>
+                    <Link to="/Coordinates">KIDS</Link>
                     <ul className="dropDown">
                         <li><Link to="/Coordinates">Co-ordinates</Link></li>
                         <li><Link to="/Rompers">Rompers</Link></li>
@@ -47,7 +47,7 @@ const Header = () => {
                     </ul>
                 </li>
                 <li className="nav-item">
-                    <Link to="/Accessories">ACCESSORIES</Link>
+                    <Link to="/Bags">ACCESSORIES</Link>
                     <ul className="dropDown">
                         <li><Link to="/Bags">Bags</Link></li>
                         <li><Link to="/Jewellery">Jewellery</Link></li>
@@ -63,8 +63,8 @@ const Header = () => {
             </div>
 
             <div className="navbar-icons">
-                <i className="fas fa-pencil-alt"></i>
-                <i className="fas fa-shopping-cart"></i>
+                <i className="fas fa-heart wishlist-icon"> </i>
+                <i className="fas fa-shopping-cart"> </i>
                 <i className="fas fa-bell"></i>
                 <i className="fas fa-user"></i>
             </div>

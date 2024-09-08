@@ -3,8 +3,6 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import './index.css'
 import Layout from './components/Layout'
-// import Header from './components/Header/Header'
-// import Footer from './components/Footer/Footer'
 import ShortKurtis from './components/Women/ShortKurtis'
 import TeesandCrops from './components/Women/TeesandCrops'
 import Sarees from './components/Women/Sarees'
@@ -26,12 +24,11 @@ import Bags from './components/Accessories/Bags'
 import Jewellery from './components/Accessories/Jewellery'
 import Shoes from './components/Accessories/Shoes'
 import Watches from './components/Accessories/Watches'
+import LoginPage from './components/Icons/LoginPage'
 const router =createBrowserRouter(
   createRoutesFromElements(
     <>
     <Route path='/' element={<Layout/>}/>
-    {/* <Route path='' element={<Header/>}/>
-    <Route path ='' element={<Footer/>}/> */}
     <Route path='ShortKurtis' element={<ShortKurtis/>}/>
     <Route path='TeesandCrops' element={<TeesandCrops/>}/>
     <Route path='Sarees' element={<Sarees/>}/>
@@ -53,7 +50,7 @@ const router =createBrowserRouter(
     <Route path='Jewellery' element={<Jewellery/>}/>
     <Route path='Shoes' element={<Shoes/>}/>
     <Route path='Watches' element={<Watches/>}/>
-    
+    <Route path="/login" element={<LoginPage />} />
     </>
   )
 ) 

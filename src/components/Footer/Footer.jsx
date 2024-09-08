@@ -5,13 +5,13 @@ const Footer = () => {
         <footer class="footer">
         <div class="container">
             <div class="logo">
-                My Website
+                Fashion Store
             </div>
             <div class="social-icons">
-                <a href="#" aria-label="Facebook" class="fa fa-facebook"></a>
-                <a href="#" aria-label="Twitter" class="fa fa-twitter"></a>
-                <a href="#" aria-label="Instagram" class="fa fa-instagram"></a>
-                <a href="#" aria-label="LinkedIn" class="fa fa-linkedin"></a>
+                <a href="#" aria-label="Facebook" class="fab fa-facebook"></a>
+                <a href="#" aria-label="Twitter" class="fab fa-twitter"></a>
+                <a href="#" aria-label="Instagram" class="fab fa-instagram"></a>
+                <a href="#" aria-label="LinkedIn" class="fab fa-linkedin"></a>
             </div>
             <div class="links">
                 <a href="#">Privacy Policy</a>
@@ -19,7 +19,7 @@ const Footer = () => {
                 <a href="#">Contact Us</a>
             </div>
             <div class="copy">
-                &copy; 2024 My Website. All rights reserved.
+                &copy; 2024 Fashion-Store. All rights reserved.
             </div>
         </div>
     </footer>
