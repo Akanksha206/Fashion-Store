@@ -560,4 +560,11 @@ button {
     width: 300px;
 }
 
-  
+/* Wish List Icon */
+p{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+    font-size: 15px;
+    padding: 230px;
+}

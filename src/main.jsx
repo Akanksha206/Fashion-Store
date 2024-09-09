@@ -27,6 +27,9 @@ import Jewellery from './components/Accessories/Jewellery'
 import Shoes from './components/Accessories/Shoes'
 import Watches from './components/Accessories/Watches'
 import LoginPage from './components/Icons/LoginPage'
+import WishlistIcon from './components/Icons/WishlistIcon'
+import CartIcon from './components/Icons/CartIcon'
+import NotificationIcon from './components/Icons/NotificationIcon'
 
 const router =createBrowserRouter(
   createRoutesFromElements(
@@ -55,6 +58,9 @@ const router =createBrowserRouter(
     <Route path='Shoes' element={<Shoes/>}/>
     <Route path='Watches' element={<Watches/>}/>
     <Route path='LoginPage' element={<LoginPage/>}/>
+    <Route path ='Wishlist' element={<WishlistIcon />}/>
+    <Route path ='CartIcon' element={<CartIcon/>}/>
+    <Route path ='Notification' element={<NotificationIcon/>}/>
     </Route>
     </>
   )

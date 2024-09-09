@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/style.css';
 
-const WishlistIcon = () => {
+const Wishlist = () => {
   return (
-    <Link to="/wishlist" className="icon-link">
-      <i className="fas fa-heart wishlist-icon"></i>
-    </Link>
+   <>
+   <p>Your saved items will apper here.</p>
+   </>
   );
 };
 
-export default WishlistIcon;
+export default Wishlist;

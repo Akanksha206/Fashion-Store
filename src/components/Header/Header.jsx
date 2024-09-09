@@ -14,50 +14,50 @@ const Header = () => {
                 </div>
                 <ul>
                     <li className="nav-item">
-                        <NavLink to="/Feed" activeClassName="active">FEED</NavLink>
+                        <NavLink to="/Feed" activeclassname="active">FEED</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/ShortKurtis" activeClassName="active">WOMEN</NavLink>
+                        <NavLink to="/ShortKurtis" activeclassname="active">WOMEN</NavLink>
                         <ul className="dropDown">
-                            <li><NavLink to="/ShortKurtis" activeClassName="active">Short Kurtis</NavLink></li>
-                            <li><NavLink to="/TeesandCrops" activeClassName="active">Tees and Crops</NavLink></li>
-                            <li><NavLink to="/Sarees" activeClassName="active">Sarees</NavLink></li>
-                            <li><NavLink to="/Jeans" activeClassName="active">Jeans</NavLink></li>
-                            <li><NavLink to="/Shorts" activeClassName="active">Shorts</NavLink></li>
-                            <li><NavLink to="/CoordSets" activeClassName="active">Co-ord Sets</NavLink></li>
+                            <li><NavLink to="/ShortKurtis" activeclassname="active">Short Kurtis</NavLink></li>
+                            <li><NavLink to="/TeesandCrops" activeclassname="active">Tees and Crops</NavLink></li>
+                            <li><NavLink to="/Sarees" activeclassname="active">Sarees</NavLink></li>
+                            <li><NavLink to="/Jeans" activeclassname="active">Jeans</NavLink></li>
+                            <li><NavLink to="/Shorts" activeclassname="active">Shorts</NavLink></li>
+                            <li><NavLink to="/CoordSets" activeclassname="active">Co-ord Sets</NavLink></li>
                         </ul>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="/Floral" activeClassName="active">MEN</NavLink>
+                        <NavLink to="/Floral" activeclassname="active">MEN</NavLink>
                         <ul className="dropDown">
-                            <li><NavLink to="/Floral" activeClassName="active">Floral Shirts</NavLink></li>
-                            <li><NavLink to="/Chequered" activeClassName="active">Chequered Shirts</NavLink></li>
-                            <li><NavLink to="/Oversized" activeClassName="active">Oversized Tees</NavLink></li>
-                            <li><NavLink to="/Colour" activeClassName="active">Colour Blocked</NavLink></li>
-                            <li><NavLink to="/Sauve" activeClassName="active">Sauve Trousers</NavLink></li>
-                            <li><NavLink to="/Stripped" activeClassName="active">Stripped Shirts</NavLink></li>
+                            <li><NavLink to="/Floral" activeclassname="active">Floral Shirts</NavLink></li>
+                            <li><NavLink to="/Chequered" activeclassname="active">Chequered Shirts</NavLink></li>
+                            <li><NavLink to="/Oversized" activeclassname="active">Oversized Tees</NavLink></li>
+                            <li><NavLink to="/Colour" activeclassname="active">Colour Blocked</NavLink></li>
+                            <li><NavLink to="/Sauve" activeclassname="active">Sauve Trousers</NavLink></li>
+                            <li><NavLink to="/Stripped" activeclassname="active">Stripped Shirts</NavLink></li>
                         </ul>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="/Coordinates" activeClassName="active">KIDS</NavLink>
+                        <NavLink to="/Coordinates" activeclassname="active">KIDS</NavLink>
                         <ul className="dropDown">
-                            <li><NavLink to="/Coordinates" activeClassName="active">Co-ordinates</NavLink></li>
-                            <li><NavLink to="/Rompers" activeClassName="active">Rompers</NavLink></li>
-                            <li><NavLink to="/Joggers" activeClassName="active">Joggers</NavLink></li>
-                            <li><NavLink to="/Shirts" activeClassName="active">Shirts</NavLink></li>
-                            <li><NavLink to="/Tees" activeClassName="active">Tees</NavLink></li>
+                            <li><NavLink to="/Coordinates" activeclassname="active">Co-ordinates</NavLink></li>
+                            <li><NavLink to="/Rompers" activeclassname="active">Rompers</NavLink></li>
+                            <li><NavLink to="/Joggers" activeclassname="active">Joggers</NavLink></li>
+                            <li><NavLink to="/Shirts" activeclassname="active">Shirts</NavLink></li>
+                            <li><NavLink to="/Tees" activeclassname="active">Tees</NavLink></li>
                         </ul>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink to="/Bags" activeClassName="active">ACCESSORIES</NavLink>
+                        <NavLink to="/Bags" activeclassname="active">ACCESSORIES</NavLink>
                         <ul className="dropDown">
-                            <li><NavLink to="/Bags" activeClassName="active">Bags</NavLink></li>
-                            <li><NavLink to="/Jewellery" activeClassName="active">Jewellery</NavLink></li>
-                            <li><NavLink to="/Shoes" activeClassName="active">Shoes</NavLink></li>
-                            <li><NavLink to="/Watches" activeClassName="active">Watches</NavLink></li>
+                            <li><NavLink to="/Bags" activeclassname="active">Bags</NavLink></li>
+                            <li><NavLink to="/Jewellery" activeclassname="active">Jewellery</NavLink></li>
+                            <li><NavLink to="/Shoes" activeclassname="active">Shoes</NavLink></li>
+                            <li><NavLink to="/Watches" activeclassname="active">Watches</NavLink></li>
                         </ul>
                     </li>
                 </ul>
@@ -68,9 +68,15 @@ const Header = () => {
                 </div>
 
                 <div className="navbar-icons">
+                    <NavLink to="/WishList">
                     <i className="fas fa-heart wishlist-icon"></i>
+                    </NavLink>
+                    <NavLink to="/CartIcon">
                     <i className="fas fa-shopping-cart"></i>
-                    <i className="fas fa-bell"></i>
+                    </NavLink>
+                   <NavLink to="/Notification">
+                   <i className="fas fa-bell"></i>
+                   </NavLink>
                    <NavLink to="/LoginPage">
                    <i className="fas fa-user"></i>
                    </NavLink>

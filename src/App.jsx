@@ -1,7 +1,19 @@
-export default function App() {
+import React from 'react'
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import Feed from './components/Feed/Feed';
+
+
+
+function Layout() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+    <Header/>
+  
+    <Feed/>
+    
+    <Footer/>
+    </>
   )
 }
+export default Layout;

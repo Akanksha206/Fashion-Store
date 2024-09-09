@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/style.css';
 
-const NotificationsIcon = () => {
+const Notification = () => {
   return (
-    <Link to="/notifications" className="icon-link">
-      <i className="fas fa-bell notifications-icon"></i>
-    </Link>
+    <>
+    <p>Your Notifications will apper here.</p>
+    </>
   );
 };
 
-export default NotificationsIcon;
+export default Notification;
