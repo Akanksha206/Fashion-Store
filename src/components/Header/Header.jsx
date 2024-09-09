@@ -71,7 +71,9 @@ const Header = () => {
                     <i className="fas fa-heart wishlist-icon"></i>
                     <i className="fas fa-shopping-cart"></i>
                     <i className="fas fa-bell"></i>
-                    <i className="fas fa-user"></i>
+                   <NavLink to="/LoginPage">
+                   <i className="fas fa-user"></i>
+                   </NavLink>
                 </div>
             </div>
         </header>
