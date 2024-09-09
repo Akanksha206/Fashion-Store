@@ -1,75 +1,80 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../styles/style.css';
 
 const Header = () => {
     return (
         <header>
-        <div className="navbar">
-        <div className="logo"><img src="/src/assets/images/download.png" alt="logo" /></div>
-            <ul>
-                <li className="nav-item">
-                    <NavLink to="/feed" className='active'>FEED</NavLink>
-                </li>
-                <li className="nav-item">
-                    <Link to="/ShortKurtis">WOMEN</Link>
-                    <ul className="dropDown">
-                        <li><Link to="/ShortKurtis">Short Kurtis</Link></li>
-                        <li><Link to="/TeesandCrops">Tees and Crops</Link></li>
-                        <li><Link to="/Sarees">Sarees</Link></li>
-                        <li><Link to="/Jeans">Jeans</Link></li>
-                        <li><Link to="/Shorts">Shorts</Link></li>
-                        <li><Link to="/CoordSets">Co-ord Sets</Link></li>
-                    </ul>
-                </li>
+            <div className="navbar">
+                <div className="logo">
+                <NavLink to="/Feed">
 
-                <li className="nav-item">
-                    <Link to="/Floral">MEN</Link>
-                    <ul className="dropDown">
-                        <li><Link to="/Floral">Floral Shirts</Link></li>
-                        <li><Link to="/Chequered">Chequered Shirts</Link></li>
-                        <li><Link to="/Oversized">Oversized Tees</Link></li>
-                        <li><Link to="/Colour">Colour Blocked</Link></li>
-                        <li><Link to="/Sauve">Sauve Trousers</Link></li>
-                        <li><Link to="/Stripped">Stripped Shirts</Link></li>
-                    </ul>
-                </li>
+                    <img src="/src/assets/images/download.png" alt="logo" />
+                    </NavLink>
+                </div>
+                <ul>
+                    <li className="nav-item">
+                        <NavLink to="/Feed" activeClassName="active">FEED</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/ShortKurtis" activeClassName="active">WOMEN</NavLink>
+                        <ul className="dropDown">
+                            <li><NavLink to="/ShortKurtis" activeClassName="active">Short Kurtis</NavLink></li>
+                            <li><NavLink to="/TeesandCrops" activeClassName="active">Tees and Crops</NavLink></li>
+                            <li><NavLink to="/Sarees" activeClassName="active">Sarees</NavLink></li>
+                            <li><NavLink to="/Jeans" activeClassName="active">Jeans</NavLink></li>
+                            <li><NavLink to="/Shorts" activeClassName="active">Shorts</NavLink></li>
+                            <li><NavLink to="/CoordSets" activeClassName="active">Co-ord Sets</NavLink></li>
+                        </ul>
+                    </li>
 
-                  <li className="nav-item">
-                    <Link to="/Coordinates">KIDS</Link>
-                    <ul className="dropDown">
-                        <li><Link to="/Coordinates">Co-ordinates</Link></li>
-                        <li><Link to="/Rompers">Rompers</Link></li>
-                        <li><Link to="/Joggers">Joggers</Link></li>
-                        <li><Link to="/Shirts">Shirts</Link></li>
-                        <li><Link to="/Tees">Tees</Link></li>
-                    </ul>
-                </li>
-                <li className="nav-item">
-                    <Link to="/Bags">ACCESSORIES</Link>
-                    <ul className="dropDown">
-                        <li><Link to="/Bags">Bags</Link></li>
-                        <li><Link to="/Jewellery">Jewellery</Link></li>
-                        <li><Link to="/Shoes">Shoes</Link></li>
-                        <li><Link to="/Watches">Watches</Link></li>
-                    </ul>
-                </li>
-            </ul>
+                    <li className="nav-item">
+                        <NavLink to="/Floral" activeClassName="active">MEN</NavLink>
+                        <ul className="dropDown">
+                            <li><NavLink to="/Floral" activeClassName="active">Floral Shirts</NavLink></li>
+                            <li><NavLink to="/Chequered" activeClassName="active">Chequered Shirts</NavLink></li>
+                            <li><NavLink to="/Oversized" activeClassName="active">Oversized Tees</NavLink></li>
+                            <li><NavLink to="/Colour" activeClassName="active">Colour Blocked</NavLink></li>
+                            <li><NavLink to="/Sauve" activeClassName="active">Sauve Trousers</NavLink></li>
+                            <li><NavLink to="/Stripped" activeClassName="active">Stripped Shirts</NavLink></li>
+                        </ul>
+                    </li>
 
-            <div className="search-container">
-                <input type="search" placeholder="Search your product" />
-                <i className="fas fa-search search-icon"></i>
+                    <li className="nav-item">
+                        <NavLink to="/Coordinates" activeClassName="active">KIDS</NavLink>
+                        <ul className="dropDown">
+                            <li><NavLink to="/Coordinates" activeClassName="active">Co-ordinates</NavLink></li>
+                            <li><NavLink to="/Rompers" activeClassName="active">Rompers</NavLink></li>
+                            <li><NavLink to="/Joggers" activeClassName="active">Joggers</NavLink></li>
+                            <li><NavLink to="/Shirts" activeClassName="active">Shirts</NavLink></li>
+                            <li><NavLink to="/Tees" activeClassName="active">Tees</NavLink></li>
+                        </ul>
+                    </li>
+
+                    <li className="nav-item">
+                        <NavLink to="/Bags" activeClassName="active">ACCESSORIES</NavLink>
+                        <ul className="dropDown">
+                            <li><NavLink to="/Bags" activeClassName="active">Bags</NavLink></li>
+                            <li><NavLink to="/Jewellery" activeClassName="active">Jewellery</NavLink></li>
+                            <li><NavLink to="/Shoes" activeClassName="active">Shoes</NavLink></li>
+                            <li><NavLink to="/Watches" activeClassName="active">Watches</NavLink></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div className="search-container">
+                    <input type="search" placeholder="Search your product" />
+                    <i className="fas fa-search search-icon"></i>
+                </div>
+
+                <div className="navbar-icons">
+                    <i className="fas fa-heart wishlist-icon"></i>
+                    <i className="fas fa-shopping-cart"></i>
+                    <i className="fas fa-bell"></i>
+                    <i className="fas fa-user"></i>
+                </div>
             </div>
-
-            <div className="navbar-icons">
-                <i className="fas fa-heart wishlist-icon"> </i>
-                <i className="fas fa-shopping-cart"> </i>
-                <i className="fas fa-bell"></i>
-                <i className="fas fa-user"></i>
-            </div>
-        </div>
-           
-    </header>
+        </header>
     );
 };
 

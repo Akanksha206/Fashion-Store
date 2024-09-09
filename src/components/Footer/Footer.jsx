@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -14,9 +15,9 @@ const Footer = () => {
                 <a href="#" aria-label="LinkedIn" class="fab fa-linkedin"></a>
             </div>
             <div class="links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact Us</a>
+            <li><NavLink to="/privacy">Privacy Policy</NavLink></li>
+          <li><NavLink to="/terms">Terms of Service</NavLink></li>
+          <li><NavLink to="/contact">Contact Us</NavLink></li>
             </div>
             <div class="copy">
                 &copy; 2024 Fashion-Store. All rights reserved.

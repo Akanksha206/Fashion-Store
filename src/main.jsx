@@ -2,7 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import './index.css'
+
 import Layout from './components/Layout'
+import Feed from './components/Feed/Feed'
 import ShortKurtis from './components/Women/ShortKurtis'
 import TeesandCrops from './components/Women/TeesandCrops'
 import Sarees from './components/Women/Sarees'
@@ -30,7 +32,8 @@ import ProfileIcon from './components/Icons/ProfileIcon'
 const router =createBrowserRouter(
   createRoutesFromElements(
     <>
-    <Route path='/' element={<Layout/>}/>
+    <Route path='/' element={<Layout/>}>
+    <Route path='Feed' element={<Feed/>}/>
     <Route path='ShortKurtis' element={<ShortKurtis/>}/>
     <Route path='TeesandCrops' element={<TeesandCrops/>}/>
     <Route path='Sarees' element={<Sarees/>}/>
@@ -54,6 +57,7 @@ const router =createBrowserRouter(
     <Route path='Watches' element={<Watches/>}/>
     <Route path='login' element={<LoginPage/>}/>
     <Route path='login' element={<ProfileIcon/>}/> 
+    </Route>
     </>
   )
 ) 

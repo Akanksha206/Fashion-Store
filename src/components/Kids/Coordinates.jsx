@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/style.css';
+import { NavLink } from 'react-router-dom';
 
 const products = [
     {
@@ -73,8 +74,9 @@ const Coordinates = () => {
     return (
         <div className="product-grid">
             {products.map(product => (
-                <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.title} className="product-image" />
+                 <div key={product.id} className="product-card">
+                     <img src={product.image} alt={product.title} className="product-image" />
+                   
                     <div className="product-info">
                         <h3>{product.title}</h3>
                         <div className="price-section">
