@@ -1,7 +1,9 @@
-import React from 'react';
-import '../styles/style.css';
+import React, { useState } from 'react';
+import '../Women/WomenStyle/style.css';
+import SortBy from '../Icons/SortBy';
+import { Link } from 'react-router-dom';
 
-const products = [
+const jewelleryData = [
     {
         id: 1,
         image: '/src/assets/images/accessories/jewellery1.webp',
@@ -70,31 +72,70 @@ const products = [
 ];
 
 const jewellery = () => {
+    const [products, setProducts] = useState(jewelleryData);
+
+    const handleSortChange = (option) => {
+        let sortedProducts = [...jewelleryData]; // Use jewelleryData to avoid mutation
+
+        switch (option) {
+            case 'Price: Low to High':
+                sortedProducts.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace('₹', ''));
+                    const priceB = parseInt(b.price.replace('₹', ''));
+                    return priceA - priceB;
+                });
+                break;
+            case 'Price: High to Low':
+                sortedProducts.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace('₹', ''));
+                    const priceB = parseInt(b.price.replace('₹', ''));
+                    return priceB - priceA;
+                });
+                break;
+            case 'Best Sellers':
+                sortedProducts = sortedProducts.filter(jewellery => jewellery.bestSeller);
+                break;
+            case 'Featured':
+                sortedProducts = sortedProducts.filter(jewellery => jewellery.featured);
+                break;
+            default:
+                sortedProducts = jewelleryData;
+        }
+
+        setProducts(sortedProducts);
+    };
+
     return (
-        <div className="product-grid">
-            {products.map(product => (
-                <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.title} className="product-image" />
-                    <div className="product-info">
-                        <h3>{product.title}</h3>
-                        <div className="price-section">
-                            <span className="original-price">{product.originalPrice}</span>
-                            <span className="discounted-price">{product.price}</span>
-                            <span className="discount">{product.discount}</span>
+        <div>
+            <SortBy onSortChange={handleSortChange} /> {/* SortBy component */}
+
+            <div className="product-grid">
+                {products.map(jewellery => (
+                    <div key={jewellery.id} className="product-card">
+                        {/* Link to the details page */}
+                        <Link to={`/jewellery-details/${jewellery.id}`}>
+                            <img src={jewellery.image} alt={jewellery.title} className="product-image" />
+                        </Link>
+                        <div className="product-info">
+                            <h3>{jewellery.title}</h3>
+                            <div className="price-section">
+                                <span className="original-price">{jewellery.originalPrice}</span>
+                                <span className="discounted-price">{jewellery.price}</span>
+                                <span className="discount">{jewellery.discount}</span>
+                            </div>
+                        </div>
+                        <div className="product-actions">
+                            <button className="add-to-cart-btn">Add to Cart</button>
+                            <button className="buy-now-btn">Buy Now</button>
+                        </div>
+                        <div className="product-options">
+                            <i className="fas fa-heart wishlist-icon"></i>
+                            <i className="fas fa-share-alt share-icon"></i>
                         </div>
                     </div>
-                    <div className="product-actions">
-                        <button className="add-to-cart-btn">Add to Cart</button>
-                        <button className="buy-now-btn">Buy Now</button>
-                    </div>
-                    <div className="product-options">
-                        <i className="fas fa-heart wishlist-icon"></i>
-                        <i className="fas fa-share-alt share-icon"></i>
-                    </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };
-
 export default jewellery;

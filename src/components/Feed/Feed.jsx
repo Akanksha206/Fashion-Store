@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../styles/style.css';
+import LoginModal from '../LoginModal/LoginModal'; // Assuming the LoginModal is still a separate component
+import '../GlobalStyles/style.css';
 
 const Feed = () => {
+    // Modal state and functionality
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        // Automatically open the modal when page loads
+        setIsModalOpen(true);
+    }, []);
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     // Women's section
     const [womenStartIndex, setWomenStartIndex] = useState(0);
     const womenImages = [
@@ -82,14 +95,13 @@ const Feed = () => {
         }
     };
 
-    // Accessories section(decor)
+    // Accessories section (decor)
     const [decorStartIndex, setDecorStartIndex] = useState(0);
     const decorImages = [
         { src: '/src/assets/images/accessories/Artboard.jpg', alt: 'Artboard', link: '/Jewellery' },
         { src: '/src/assets/images/accessories/bags.jpg', alt: 'Category_Bags', link: '/Bags' },
         { src: '/src/assets/images/accessories/modernFusion.jpg', alt: 'Modern Fusion', link: '/Jewellery' },
         { src: '/src/assets/images/accessories/watches.jpg', alt: 'smart watches', link: '/Watches' },
-        
     ];
 
     const totalDecorItems = decorImages.length;
@@ -109,6 +121,10 @@ const Feed = () => {
 
     return (
         <div className="main-section-container">
+            {/* Modal for login */}
+            <LoginModal isOpen={isModalOpen} closeModal={closeModal} />
+
+            {/* Feed sections */}
             <div className="subnav">
                 <div className="category">
                     <NavLink to="/feed1"><img src="/src/assets/images/Feed/Feed1.jpg" alt="Feed" /></NavLink>
@@ -123,6 +139,7 @@ const Feed = () => {
                     <NavLink to="/sale"><img src="/src/assets/images/Feed/sale.jpg" alt="Feed" /></NavLink>
                 </div>
             </div>
+
             {/* Women's Section */}
             <div className="main-section">
                 <h2>Curated Collections for the Modern Woman</h2>
@@ -163,7 +180,7 @@ const Feed = () => {
 
             {/* Kids Section */}
             <div className="main-section">
-                <h2>Trendy Kidswear for Every Occasion</h2>
+                <h2>Fun and Fashionable: Kids' Apparel</h2>
                 <hr />
                 <div className="carousel-controls">
                     <button className="carousel-btn prev-btn" onClick={handlePrevKid}>&#10094;</button>
@@ -180,9 +197,9 @@ const Feed = () => {
                 </div>
             </div>
 
-            {/* Accessories Section(decor) */}
+            {/* Accessories Section */}
             <div className="main-section">
-                <h2>Accessorize Your Way to Unforgettable Style</h2>
+                <h2>Elevate Your Style: Accessories & More</h2>
                 <hr />
                 <div className="carousel-controls">
                     <button className="carousel-btn prev-btn" onClick={handlePrevDecor}>&#10094;</button>

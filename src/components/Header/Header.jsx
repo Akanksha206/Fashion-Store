@@ -1,20 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../styles/style.css';
+import '../GlobalStyles/style.css';
+import SortBy from '../Icons/SortBy';
 
 const Header = () => {
     return (
         <header>
             <div className="navbar">
                 <div className="logo">
-                <NavLink to="/Feed">
-
+                <NavLink to=''>
                     <img src="/src/assets/images/download.png" alt="logo" />
                     </NavLink>
                 </div>
                 <ul>
                     <li className="nav-item">
-                        <NavLink to="/Feed" activeclassname="active">FEED</NavLink>
+                        <NavLink to='' activeclassname="active">FEED</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink to="/ShortKurtis" activeclassname="active">WOMEN</NavLink>
@@ -81,6 +81,10 @@ const Header = () => {
                    <i className="fas fa-user"></i>
                    </NavLink>
                 </div>
+            </div>
+
+            <div className="sort-by-wrapper">
+               <SortBy />
             </div>
         </header>
     );

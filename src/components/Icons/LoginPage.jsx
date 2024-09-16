@@ -1,12 +1,12 @@
 
 import React from 'react';
-import '../styles/style.css';
+import '../Icons/style/IconStyle.css';
 
 const LoginPage = () => {
     return (
         <div className="login-page">
             <form className="login-form">
-                <h2>Login Form</h2>
+                <h2>Sign Up</h2>
                 <div>
                     <label htmlFor="username">Username:  </label>
                     <input type="text" id="username" placeholder="Enter username" />
@@ -25,7 +25,8 @@ const LoginPage = () => {
                     <a href="#">Forgot password?</a>
                 </div>
                 <br />
-                <button type="button" id="cancel">Cancel</button>
+                <button type="button" id="cancel">Reset</button>
+                <button type="button" id="submit">Submit</button>
             </form>
         </div>
     );

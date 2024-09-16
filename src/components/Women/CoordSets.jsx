@@ -1,7 +1,9 @@
-import React from 'react';
-import '../styles/style.css';
+import React, { useState } from 'react';
+import '../Women/WomenStyle/style.css';
+import SortBy from '../Icons/SortBy';
+import { Link } from 'react-router-dom';
 
-const products = [
+const coordSetsData = [
     {
         id: 1,
         image: '/src/assets/images/women/summer7.webp',
@@ -9,6 +11,8 @@ const products = [
         price: '₹499',
         originalPrice: '₹999',
         discount: '50% off',
+        featured: false, 
+        bestSeller: false,
     },
     {
         id: 2,
@@ -17,6 +21,8 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: false, 
+        bestSeller: false,
     },
     {
         id: 3,
@@ -25,6 +31,8 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: false, 
+        bestSeller: true,
     },
     {
         id: 4,
@@ -33,6 +41,8 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: true, 
+        bestSeller: false,
     },
     {
         id: 5,
@@ -41,6 +51,8 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: false, 
+        bestSeller: true,
     },
     {
         id: 6,
@@ -49,6 +61,8 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: false, 
+        bestSeller: false,
     },
     {
         id: 7,
@@ -57,6 +71,8 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: true, 
+        bestSeller: false,
     },
     {
         id: 8,
@@ -65,6 +81,8 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: false, 
+        bestSeller: false,
     },
     {
         id: 9,
@@ -73,6 +91,8 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: false, 
+        bestSeller: false,
     },
     {
         id: 10,
@@ -81,35 +101,76 @@ const products = [
         price: '₹599',
         originalPrice: '₹999',
         discount: '40% off',
+        featured: true, 
+        bestSeller: false,
     },
 ];
 
 const CoordSets = () => {
+    const [products, setProducts] = useState(coordSetsData);
+
+    const handleSortChange = (option) => {
+        let sortedProducts = [...coordSetsData]; // Use coordSetsData to avoid mutation
+
+        switch (option) {
+            case 'Price: Low to High':
+                sortedProducts.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace('₹', ''));
+                    const priceB = parseInt(b.price.replace('₹', ''));
+                    return priceA - priceB;
+                });
+                break;
+            case 'Price: High to Low':
+                sortedProducts.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace('₹', ''));
+                    const priceB = parseInt(b.price.replace('₹', ''));
+                    return priceB - priceA;
+                });
+                break;
+            case 'Best Sellers':
+                sortedProducts = sortedProducts.filter(coordSet => coordSet.bestSeller);
+                break;
+            case 'Featured':
+                sortedProducts = sortedProducts.filter(coordSet => coordSet.featured);
+                break;
+            default:
+                sortedProducts = coordSetsData;
+        }
+
+        setProducts(sortedProducts);
+    };
+
     return (
-        <div className="product-grid">
-            {products.map(product => (
-                <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.title} className="product-image" />
-                    <div className="product-info">
-                        <h3>{product.title}</h3>
-                        <div className="price-section">
-                            <span className="original-price">{product.originalPrice}</span>
-                            <span className="discounted-price">{product.price}</span>
-                            <span className="discount">{product.discount}</span>
+        <div>
+            <SortBy onSortChange={handleSortChange} /> {/* SortBy component */}
+
+            <div className="product-grid">
+                {products.map(coordSet => (
+                    <div key={coordSet.id} className="product-card">
+                        {/* Link to the details page */}
+                        <Link to={`/coordSet-details/${coordSet.id}`}>
+                            <img src={coordSet.image} alt={coordSet.title} className="product-image" />
+                        </Link>
+                        <div className="product-info">
+                            <h3>{coordSet.title}</h3>
+                            <div className="price-section">
+                                <span className="original-price">{coordSet.originalPrice}</span>
+                                <span className="discounted-price">{coordSet.price}</span>
+                                <span className="discount">{coordSet.discount}</span>
+                            </div>
+                        </div>
+                        <div className="product-actions">
+                            <button className="add-to-cart-btn">Add to Cart</button>
+                            <button className="buy-now-btn">Buy Now</button>
+                        </div>
+                        <div className="product-options">
+                            <i className="fas fa-heart wishlist-icon"></i>
+                            <i className="fas fa-share-alt share-icon"></i>
                         </div>
                     </div>
-                    <div className="product-actions">
-                        <button className="add-to-cart-btn">Add to Cart</button>
-                        <button className="buy-now-btn">Buy Now</button>
-                    </div>
-                    <div className="product-options">
-                        <i className="fas fa-heart wishlist-icon"></i>
-                        <i className="fas fa-share-alt share-icon"></i>
-                    </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };
-
 export default CoordSets;

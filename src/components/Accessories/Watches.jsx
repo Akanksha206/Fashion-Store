@@ -1,7 +1,9 @@
-import React from 'react';
-import '../styles/style.css';
+import React, { useState } from 'react';
+import '../Women/WomenStyle/style.css';
+import SortBy from '../Icons/SortBy';
+import { Link } from 'react-router-dom';
 
-const products = [
+const watchesData = [
     {
         id: 1,
         image: '/src/assets/images/accessories/watch1.webp',
@@ -43,7 +45,7 @@ const products = [
         discount: '40% off',
     },
     {
-        id: 5,
+        id: 6,
         image: '/src/assets/images/accessories/watch6.webp',
         title: 'Product 5',
         price: '₹599',
@@ -51,7 +53,7 @@ const products = [
         discount: '40% off',
     },
     {
-        id: 5,
+        id: 7,
         image: '/src/assets/images/accessories/watch7.webp',
         title: 'Product 5',
         price: '₹599',
@@ -61,31 +63,70 @@ const products = [
 ];
 
 const Watches = () => {
+    const [products, setProducts] = useState(watchesData);
+
+    const handleSortChange = (option) => {
+        let sortedProducts = [...watchesData]; // Use productsData to avoid mutation
+
+        switch (option) {
+            case 'Price: Low to High':
+                sortedProducts.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace('₹', ''));
+                    const priceB = parseInt(b.price.replace('₹', ''));
+                    return priceA - priceB;
+                });
+                break;
+            case 'Price: High to Low':
+                sortedProducts.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace('₹', ''));
+                    const priceB = parseInt(b.price.replace('₹', ''));
+                    return priceB - priceA;
+                });
+                break;
+            case 'Best Sellers':
+                sortedProducts = sortedProducts.filter(watches => watches.bestSeller);
+                break;
+            case 'Featured':
+                sortedProducts = sortedProducts.filter(watches => watches.featured);
+                break;
+            default:
+                sortedProducts = watchesData;
+        }
+
+        setProducts(sortedProducts);
+    };
+
     return (
-        <div className="product-grid">
-            {products.map(product => (
-                <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.title} className="product-image" />
-                    <div className="product-info">
-                        <h3>{product.title}</h3>
-                        <div className="price-section">
-                            <span className="original-price">{product.originalPrice}</span>
-                            <span className="discounted-price">{product.price}</span>
-                            <span className="discount">{product.discount}</span>
+        <div>
+            <SortBy onSortChange={handleSortChange} /> {/* SortBy component */}
+
+            <div className="product-grid">
+                {products.map(watches => (
+                    <div key={watches.id} className="product-card">
+                        {/* Link to the details page */}
+                        <Link to={`/watches-details/${watches.id}`}>
+                            <img src={watches.image} alt={watches.title} className="product-image" />
+                        </Link>
+                        <div className="product-info">
+                            <h3>{watches.title}</h3>
+                            <div className="price-section">
+                                <span className="original-price">{watches.originalPrice}</span>
+                                <span className="discounted-price">{watches.price}</span>
+                                <span className="discount">{watches.discount}</span>
+                            </div>
+                        </div>
+                        <div className="product-actions">
+                            <button className="add-to-cart-btn">Add to Cart</button>
+                            <button className="buy-now-btn">Buy Now</button>
+                        </div>
+                        <div className="product-options">
+                            <i className="fas fa-heart wishlist-icon"></i>
+                            <i className="fas fa-share-alt share-icon"></i>
                         </div>
                     </div>
-                    <div className="product-actions">
-                        <button className="add-to-cart-btn">Add to Cart</button>
-                        <button className="buy-now-btn">Buy Now</button>
-                    </div>
-                    <div className="product-options">
-                        <i className="fas fa-heart wishlist-icon"></i>
-                        <i className="fas fa-share-alt share-icon"></i>
-                    </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };
-
 export default Watches;

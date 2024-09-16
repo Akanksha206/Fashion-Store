@@ -1,0 +1,125 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 10px;
+    padding-top: 100px;
+    margin: 40px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    background-color: #cde9f8;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    max-width: 80%;
+    height: 60%;
+    padding-left: 50px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.product-info {
+    margin: 10px 0;
+}
+
+.product-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.price-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 0.9em;
+}
+
+.discounted-price {
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.discount {
+    color: green;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.product-actions {
+    margin-top: 10px;
+}
+
+.add-to-cart-btn,
+.buy-now-btn {
+    font-size: small;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-btn {
+    background-color: #0f6bce;
+    width: 100px;
+}
+
+.buy-now-btn {
+    background-color: #21953c;
+}
+
+.product-options {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wishlist-icon,
+.share-icon {
+    cursor: pointer;
+    font-size: 18px;
+    color: rgb(169, 167, 167);
+    padding: 5px;
+    border: 1px solid white;
+    box-shadow: 0.1px 0.1px 1px black;
+    border-radius: 50px;
+}
+
+.wishlist-icon:hover {
+    color: red;
+}
+
+.share-icon:hover {
+    color: #007bff;
+}
+
+
+

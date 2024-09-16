@@ -1,7 +1,9 @@
-import React from 'react';
-import '../styles/style.css';
+import React, { useState } from 'react';
+import '../Women/WomenStyle/style.css';
+import SortBy from '../Icons/SortBy';
+import { Link } from 'react-router-dom';
 
-const products = [
+const chequeredData = [
     {
         id: 1,
         image: '/src/assets/images/men/check1.webp',
@@ -78,31 +80,70 @@ const products = [
 ];
 
 const Chequered = () => {
+    const [products, setProducts] = useState(chequeredData);
+
+    const handleSortChange = (option) => {
+        let sortedProducts = [...chequeredData]; // Use chequeredData to avoid mutation
+
+        switch (option) {
+            case 'Price: Low to High':
+                sortedProducts.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace('₹', ''));
+                    const priceB = parseInt(b.price.replace('₹', ''));
+                    return priceA - priceB;
+                });
+                break;
+            case 'Price: High to Low':
+                sortedProducts.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace('₹', ''));
+                    const priceB = parseInt(b.price.replace('₹', ''));
+                    return priceB - priceA;
+                });
+                break;
+            case 'Best Sellers':
+                sortedProducts = sortedProducts.filter(chequered => chequered.bestSeller);
+                break;
+            case 'Featured':
+                sortedProducts = sortedProducts.filter(chequered => chequered.featured);
+                break;
+            default:
+                sortedProducts = chequeredData;
+        }
+
+        setProducts(sortedProducts);
+    };
+
     return (
-        <div className="product-grid">
-            {products.map(product => (
-                <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.title} className="product-image" />
-                    <div className="product-info">
-                        <h3>{product.title}</h3>
-                        <div className="price-section">
-                            <span className="original-price">{product.originalPrice}</span>
-                            <span className="discounted-price">{product.price}</span>
-                            <span className="discount">{product.discount}</span>
+        <div>
+            <SortBy onSortChange={handleSortChange} /> {/* SortBy component */}
+
+            <div className="product-grid">
+                {products.map(chequered => (
+                    <div key={chequered.id} className="product-card">
+                        {/* Link to the details page */}
+                        <Link to={`/chequered-details/${chequered.id}`}>
+                            <img src={chequered.image} alt={chequered.title} className="product-image" />
+                        </Link>
+                        <div className="product-info">
+                            <h3>{chequered.title}</h3>
+                            <div className="price-section">
+                                <span className="original-price">{chequered.originalPrice}</span>
+                                <span className="discounted-price">{chequered.price}</span>
+                                <span className="discount">{chequered.discount}</span>
+                            </div>
+                        </div>
+                        <div className="product-actions">
+                            <button className="add-to-cart-btn">Add to Cart</button>
+                            <button className="buy-now-btn">Buy Now</button>
+                        </div>
+                        <div className="product-options">
+                            <i className="fas fa-heart wishlist-icon"></i>
+                            <i className="fas fa-share-alt share-icon"></i>
                         </div>
                     </div>
-                    <div className="product-actions">
-                        <button className="add-to-cart-btn">Add to Cart</button>
-                        <button className="buy-now-btn">Buy Now</button>
-                    </div>
-                    <div className="product-options">
-                        <i className="fas fa-heart wishlist-icon"></i>
-                        <i className="fas fa-share-alt share-icon"></i>
-                    </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };
-
 export default Chequered;

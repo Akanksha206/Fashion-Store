@@ -1,0 +1,141 @@
+/* Wish List Icon */
+p{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
+  font-size: 15px;
+  padding: 230px;
+}
+
+/* Login Page */
+
+.login-page{
+  padding: 50px;
+}
+
+.login-form {
+  text-align: center;
+  padding-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0.1px 0.1px 2px rgb(124, 124, 239);
+  width: 400px;
+  margin: auto;
+  height: 400px;
+  margin-top: 100px;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2 {
+  color: rgb(11, 11, 130);
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+
+button {
+  background-color: red;
+  border: none;
+  padding: 8px;
+  width: 80px;
+  border-radius: 3px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
+}
+
+.options input[type="checkbox"] {
+  margin-right:-50px;
+}
+#login {
+  background-color: green;
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+#submit{
+  background-color: green;
+  margin-left: 20px;
+}
+
+
+
+/* Sort By */
+.sort-by-container {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .sort-by-button {
+    display: flex;
+    align-items: center;
+    background-color: #f1f3f4;
+    border: 1px solid #dcdcdc;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    width: 160px;
+  }
+  
+  .sort-by-button:hover {
+    background-color: #e2e6e9;
+  }
+  
+  .sort-by-selected {
+    font-weight: 600;
+    margin-left: 5px;
+  }
+  
+  .arrow-down {
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    margin-left: 8px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  
+  .sort-by-dropdown {
+    position: absolute;
+    top: 40px; 
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sort-by-option {
+    padding: 10px 16px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 14px;
+  }
+  
+  .sort-by-option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .sort-by-dropdown li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .sort-by-button:focus {
+    outline: none;
+  }
+
+
+
+  
+  
