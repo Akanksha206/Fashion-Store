@@ -1,294 +1,365 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '../ProductStyles/ProductStyle.css'
+import '../ProductStyles/ProductStyle.css';
 
-const oversizedDetailsData = [
+const OversizedDetails = () => {
+  const { id } = useParams();  // Get product ID from URL
+  const [pincode, setPincode] = useState("");
+  const [deliveryStatus, setDeliveryStatus] = useState(null);
+
+  const OversizedDetailsData = [
     {
-        id: 1,
-        image: '/src/assets/images/men/tees1.webp',
-        title: 'Product 1',
-        price: '₹399',
-        originalPrice: '₹899',
-        discount: '50% off',
-        fabric: 'Georgette',
-        availability: 'In Stock',
-        similarProducts: [
-            {  image: '/src/assets/images/men/tees9.webp'},
-            {  image: '/src/assets/images/men/tees10.webp' },
-        ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
+      id: 1,
+      image: "/src/assets/images/men/tees1.webp",
+      title: "Kalini Oversized T-Shirts Collections For Men",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      fabric: "Cotton",
+      work: "Thread Work",
+      pattern: "Floral",
+      includes: "Trousers",
+      reviews: {
+        rating: "4.3 ★",
+        totalReviews: 112,
+        fit: "True to size",
+        quality: "Good",
+        comfort: "Comfortable",
+      },
+      similarProducts: [
+        "/src/assets/images/men/tees3.webp",
+        "/src/assets/images/men/tees4.webp",
+        "/src/assets/images/men/tees5.webp",
+        "/src/assets/images/men/tees7.webp",
+      ],
     },
     {
-        id: 2,
-        image: '/src/assets/images/men/tees2.webp',
-        title: 'Product 2',
-        price: '₹349',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
-        similarProducts: [
-            {  image: '/src/assets/images/men/tees5.webp'},
-            {  image: '/src/assets/images/men/tees7.webp' },
-        ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
+      id: 2,
+      image: "/src/assets/images/men/tees2.webp",
+      title: "Kalini Oversized T-Shirts Collections For Men",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      fabric: "Cotton",
+      work: "Thread Work",
+      pattern: "Floral",
+      includes: "Trousers",
+      reviews: {
+        rating: "4.3 ★",
+        totalReviews: 112,
+        fit: "True to size",
+        quality: "Good",
+        comfort: "Comfortable",
+      },
+      similarProducts: [
+        "/src/assets/images/men/tees3.webp",
+        "/src/assets/images/men/tees4.webp",
+        "/src/assets/images/men/tees5.webp",
+        "/src/assets/images/men/tees7.webp",
+      ],
     },
     {
         id: 3,
-        image: '/src/assets/images/men/tees3.webp',
-        title: 'Product 3',
-        price: '₹599',
-        originalPrice: '₹1999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/men/tees3.webp",
+        title: "Kalini Oversized T-Shirts Collections For Men",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      fabric: "Cotton",
+      work: "Thread Work",
+      pattern: "Floral",
+      includes: "Trousers",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/men/tees8.webp'},
-            {  image: '/src/assets/images/men/tees9.webp' },
+          "/src/assets/images/men/tees3.webp",
+          "/src/assets/images/men/tees4.webp",
+          "/src/assets/images/men/tees5.webp",
+          "/src/assets/images/men/tees7.webp",
         ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 4,
-        image: '/src/assets/images/men/tees4.webp',
-        title: 'Product 4',
-        price: '₹799',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/men/tees4.webp",
+        title: "Kalini Oversized T-Shirts Collections For Men",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        fabric: "Cotton",
+        work: "Thread Work",
+        pattern: "Floral",
+        includes: "Trousers",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/men/tees3.webp'},
-            { image: '/src/assets/images/men/tees5.webp' },
+          "/src/assets/images/men/tees3.webp",
+          "/src/assets/images/men/tees4.webp",
+          "/src/assets/images/men/tees5.webp",
+          "/src/assets/images/men/tees7.webp",
         ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 5,
-        image: '/src/assets/images/men/tees5.webp',
-        title: 'Product 5',
-        price: '₹299',
-        originalPrice: '₹899',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/men/tees5.webp",
+        title: "Kalini Oversized T-Shirts Collections For Men",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        fabric: "Cotton",
+        work: "Thread Work",
+        pattern: "Floral",
+        includes: "Trousers",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/men/tees3.webp'},
-            {  image: '/src/assets/images/men/tees8.webp' },
+          "/src/assets/images/men/tees3.webp",
+          "/src/assets/images/men/tees4.webp",
+          "/src/assets/images/men/tees5.webp",
+          "/src/assets/images/men/tees7.webp",
         ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 6,
-        image: '/src/assets/images/men/tees6.webp',
-        title: 'Product 6',
-        price: '₹699',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/men/tees6.webp",
+        title: "Kalini Oversized T-Shirts Collections For Men",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      fabric: "Cotton",
+      work: "Thread Work",
+      pattern: "Floral",
+      includes: "Trousers",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            { image: '/src/assets/images/men/tees4.webp'},
-            {  image: '/src/assets/images/men/tees2.webp' },
+          "/src/assets/images/men/tees3.webp",
+          "/src/assets/images/men/tees4.webp",
+          "/src/assets/images/men/tees5.webp",
+          "/src/assets/images/men/tees7.webp",
         ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 7,
-        image: '/src/assets/images/men/tees7.webp',
-        title: 'Product 7',
-        price: '₹549',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/men/tees7.webp",
+        title: "Kalini Oversized T-Shirts Collections For Men",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      fabric: "Cotton",
+      work: "Thread Work",
+      pattern: "Floral",
+      includes: "Trousers",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            { image: '/src/assets/images/men/tees2.webp'},
-            { image: '/src/assets/images/men/tees5.webp' },
+          "/src/assets/images/men/tees3.webp",
+          "/src/assets/images/men/tees4.webp",
+          "/src/assets/images/men/tees5.webp",
+          "/src/assets/images/men/tees7.webp",
         ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 8,
-        image: '/src/assets/images/men/tees8.webp',
-        title: 'Product 8',
-        price: '₹649',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/men/tees8.webp",
+        title: "Kalini Oversized T-Shirts Collections For Men",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        fabric: "Cotton",
+        work: "Thread Work",
+        pattern: "Floral",
+        includes: "Trousers",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/men/tees3.webp'},
-            { image: '/src/assets/images/men/tees2.webp' },
+          "/src/assets/images/men/tees3.webp",
+          "/src/assets/images/men/tees4.webp",
+          "/src/assets/images/men/tees5.webp",
+          "/src/assets/images/men/tees7.webp",
         ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 9,
-        image: '/src/assets/images/men/tees9.webp',
-        title: 'Product 9',
-        price: '₹199',
-        originalPrice: '₹599',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/men/tees9.webp",
+        title: "Kalini Oversized T-Shirts Collections For Men",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      fabric: "Cotton",
+      work: "Thread Work",
+      pattern: "Floral",
+      includes: "Trousers",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/men/tees1.webp'},
-            { image: '/src/assets/images/men/tees5.webp' },
+          "/src/assets/images/men/tees3.webp",
+          "/src/assets/images/men/tees4.webp",
+          "/src/assets/images/men/tees5.webp",
+          "/src/assets/images/men/tees7.webp",
         ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 10,
-        image: '/src/assets/images/men/tees10.webp',
-        title: 'Product 10',
-        price: '₹99', 
-        originalPrice: '₹299', 
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/men/tees10.webp",
+        title: "Kalini Oversized T-Shirts Collections For Men",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      fabric: "Cotton",
+      work: "Thread Work",
+      pattern: "Floral",
+      includes: "Trousers",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/men/tees7.webp'},
-            { image: '/src/assets/images/men/tees8.webp' },
+          "/src/assets/images/men/tees3.webp",
+          "/src/assets/images/men/tees4.webp",
+          "/src/assets/images/men/tees5.webp",
+          "/src/assets/images/men/tees7.webp",
         ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-];
+      },
+  ];
 
-const OversizedDetails = () => {
-    const { id } = useParams();
-    const oversized = oversizedDetailsData.find(p => p.id === parseInt(id));
-    const [pincode, setPincode] = useState('');
-    const [deliveryStatus, setDeliveryStatus] = useState('');
+  // Find the selected product based on the ID from the URL
+  const oversized = OversizedDetailsData.find((item) => item.id === parseInt(id));
 
-    const handlePincodeCheck = () => {
-        if (pincode === '123456') {
-            setDeliveryStatus('Delivery Available');
-        } else {
-            setDeliveryStatus('Delivery Not Available');
-        }
-    };
+  const handlePincodeChange = (e) => {
+    setPincode(e.target.value);
+  };
 
-    return (
-        <div className="products-details-container">
-    {/* Product Details */}
-    <div className="products-details">
-        <h1>Product Details :</h1>
+  const checkDelivery = () => {
+    if (pincode === "123456") {
+      setDeliveryStatus("Available for delivery");
+    } else {
+      setDeliveryStatus("Not available in your area");
+    }
+  };
 
-        {oversized ? (
-            <div>
-
-               <img src={oversized.image} alt={`oversized ${oversized.id}`} className="products-image" />
-               
-
-                <h2>Fabric: {oversized.fabric}</h2>
-                <p className='products-avail'>Availability: {oversized.availability}</p>
-
-                <h4 className='products-shop'>Shop Information :</h4>
-                <p className='shop-name'>{oversized.shop}</p>
-
-                <div className="pincode-check">
-                    <h4>Check Delivery :</h4>
-                    <input
-                        type="text"
-                        placeholder="Enter Pincode"
-                        value={pincode}
-                        onChange={(e) => setPincode(e.target.value)}
-                    />
-                    <button onClick={handlePincodeCheck}>Check</button>
-                    <p>{deliveryStatus}</p>
-                </div>
-
-                {/* Products info */}
-                <div className="products-info">
-        {oversized && (
-            <div>
-                <h4>Customer Reviews :</h4>
-                <div className="reviews-section">
-                    {oversized.reviews.map((review, index) => (
-                        <div key={index} className="review">
-                            <p><strong >{review.user}</strong>: {review.comment}</p>
-                            <p className='rating'>Rating: {review.rating}/5</p>
-                        </div>
-                    ))}
-                </div>
-
-                <h4 className='overall-rating'>Overall Rating: {oversized.ratings}/5</h4>
+  return (
+    <div className="product-page">
+      {oversized ? (
+        <>
+          <div className="product-gallery">
+            <img src={oversized.image} alt={oversized.title} className="main-image" />
+          </div>
+          <div className="product-details">
+            <h1>{oversized.title}</h1>
+            <div className="product-price">
+              <span className="price">{oversized.price}</span>
+              <span className="discounted-price">{oversized.discountedPrice}</span>
+              <span className="discount">{oversized.discount}</span>
             </div>
-        )}
-    </div>
+
+            <div className="size-options">
+              <label>Size:</label>
+              <select>
+                {oversized.sizes.map((size, index) => (
+                  <option key={index}>{size}</option>
+                ))}
+              </select>
             </div>
-        ) : (
-            <h5>Product details not found.</h5>
-        )}
-        
-    </div>
-  
 
-    {/* Similar Products Section */}
-    <div className="similar-products-container">
-        <h4>Similar Products :</h4>
-        <div className="similar-products">
-            {oversized.similarProducts.map((similar, index) => (
-                 <div key={index}>
-                 
-                 <img src={similar.image} alt={`Similar Products ${index + 1}`} className="similar-img"/>
-                 
-                 <p>{similar.name}</p>
-             <div className="similar-product-info">
-                <div className='fabric'> <p><strong>Fabric :</strong> cotton</p></div>
-                 <div className='shop'><p><strong>Shop :</strong> Cotton Hub</p></div>
-                 <div className='price'><p><strong>Price : </strong>  Rs.259 /-{similar.price}</p></div>
-                 <div className='Quality'><p><strong>Quality :</strong> Pure Cotton</p></div>
-                 <div className='Avail'><p ><strong>Availability :</strong> In Stock</p></div>
-             </div>
-             </div>
-            ))}
-        </div>
-    </div>
-</div>
+            <div className="actions">
+              <button className="add-to-cart">Add to Cart</button>
+              <button className="buy-now">Buy Now</button>
+            </div>
 
-    );
+            <div className="pincode-check">
+              <input 
+                type="text" 
+                placeholder="Enter Pincode" 
+                value={pincode} 
+                onChange={handlePincodeChange} 
+              />
+              <button onClick={checkDelivery}>Check</button>
+              {deliveryStatus && <p>{deliveryStatus}</p>}
+            </div>
+
+            <div className="product-specifications">
+              <h3>Product Details :</h3>
+              <ul>
+                <li><strong>Fabric:</strong> {oversized.fabric}</li>
+                <li><strong>Work:</strong> {oversized.work}</li>
+                <li><strong>Pattern:</strong> {oversized.pattern}</li>
+                <li><strong>Includes:</strong> {oversized.includes}</li>
+              </ul>
+            </div>
+
+            <div className="product-reviews">
+              <h3>Customer Ratings and Reviews :</h3>
+              <p>{oversized.reviews.rating} ({oversized.reviews.totalReviews} reviews)</p>
+              <ul>
+                <li><strong>Fit:</strong> {oversized.reviews.fit}</li>
+                <li><strong>Quality:</strong> {oversized.reviews.quality}</li>
+                <li><strong>Comfort:</strong> {oversized.reviews.comfort}</li>
+              </ul>
+            </div>
+
+            <div className="similar-products">
+              <h3>Similar Products :</h3>
+              <div className="product-grid">
+                {oversized.similarProducts.map((similarProduct, index) => (
+                  <img key={index} src={similarProduct} alt="Similar Kurta" />
+                ))}
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <p>Product not found</p>
+      )}
+    </div>
+  );
 };
 
 export default OversizedDetails;

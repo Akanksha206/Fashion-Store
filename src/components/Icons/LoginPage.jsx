@@ -25,8 +25,10 @@ const LoginPage = () => {
                     <a href="#">Forgot password?</a>
                 </div>
                 <br />
+                <div className="button">
                 <button type="button" id="cancel">Reset</button>
                 <button type="button" id="submit">Submit</button>
+                </div>
             </form>
         </div>
     );

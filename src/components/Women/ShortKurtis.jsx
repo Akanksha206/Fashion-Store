@@ -3,7 +3,7 @@ import '../Women/WomenStyle/style.css';
 import SortBy from '../Icons/SortBy';
 import { Link } from 'react-router-dom';
 
-const productsData = [
+const kurtiData = [
     {
         id: 1,
         image: '/src/assets/images/women/kurti1.webp',
@@ -107,10 +107,10 @@ const productsData = [
 ];
 
 const ShortKurtis = () => {
-    const [products, setProducts] = useState(productsData);
+    const [products, setProducts] = useState(kurtiData);
 
     const handleSortChange = (option) => {
-        let sortedProducts = [...productsData]; // Use productsData to avoid mutation
+        let sortedProducts = [...kurtiData]; // Use kurtiData to avoid mutation
 
         switch (option) {
             case 'Price: Low to High':
@@ -128,13 +128,13 @@ const ShortKurtis = () => {
                 });
                 break;
             case 'Best Sellers':
-                sortedProducts = sortedProducts.filter(product => product.bestSeller);
+                sortedProducts = sortedProducts.filter(kurti => kurti.bestSeller);
                 break;
             case 'Featured':
-                sortedProducts = sortedProducts.filter(product => product.featured);
+                sortedProducts = sortedProducts.filter(kurti=> kurti.featured);
                 break;
             default:
-                sortedProducts = productsData;
+                sortedProducts = kurtiData;
         }
 
         setProducts(sortedProducts);
@@ -145,18 +145,18 @@ const ShortKurtis = () => {
             <SortBy onSortChange={handleSortChange} /> {/* SortBy component */}
 
             <div className="product-grid">
-                {products.map(product => (
-                    <div key={product.id} className="product-card">
+                {products.map(kurti => (
+                    <div key={kurti.id} className="product-card">
                         {/* Link to the details page */}
-                        <Link to={`/product-details/${product.id}`}>
-                            <img src={product.image} alt={product.title} className="product-image" />
+                        <Link to={`/kurti-details/${kurti.id}`}>
+                            <img src={kurti.image} alt={kurti.title} className="product-image" />
                         </Link>
                         <div className="product-info">
-                            <h3>{product.title}</h3>
+                            <h3>{kurti.title}</h3>
                             <div className="price-section">
-                                <span className="original-price">{product.originalPrice}</span>
-                                <span className="discounted-price">{product.price}</span>
-                                <span className="discount">{product.discount}</span>
+                                <span className="original-price">{kurti.originalPrice}</span>
+                                <span className="discounted-price">{kurti.price}</span>
+                                <span className="discount">{kurti.discount}</span>
                             </div>
                         </div>
                         <div className="product-actions">

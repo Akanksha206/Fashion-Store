@@ -1,275 +1,312 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '../ProductStyles/ProductStyle.css'
+import '../ProductStyles/ProductStyle.css';
 
-const shoesDetailsData = [
+const ShoesDetails = () => {
+  const { id } = useParams();  // Get product ID from URL
+  const [pincode, setPincode] = useState("");
+  const [deliveryStatus, setDeliveryStatus] = useState(null);
+
+  const ShoesDetailsData = [
     {
-        id: 1,
-        image: '/src/assets/images/accessories/shoe1.jpeg',
-        title: 'Product 1',
-        price: '₹399',
-        originalPrice: '₹899',
-        discount: '50% off',
-        fabric: 'Georgette',
-        availability: 'In Stock',
-        similarProducts: [
-            {  image: '/src/assets/images/accessories/shoe4.jpeg'},
-            {  image: '/src/assets/images/accessories/shoe6.jpeg' },
-        ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
+      id: 1,
+      image: "/src/assets/images/accessories/shoe1.jpeg",
+      title: "Kalini Fashionable Shoes ",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: "Adjustable",
+      Belt: "Leather",
+      pattern: "Regular",
+      reviews: {
+        rating: "4.3 ★",
+        totalReviews: 112,
+        fit: "True to size",
+        quality: "Good",
+        comfort: "Comfortable",
+      },
+      similarProducts: [
+        "/src/assets/images/accessories/shoe4.jpeg",
+        "/src/assets/images/accessories/shoe5.jpeg",
+        "/src/assets/images/accessories/shoe6.jpeg",
+        "/src/assets/images/accessories/shoe7.jpeg",
+      ],
     },
     {
-        id: 2,
-        image: '/src/assets/images/accessories/shoe2.jpeg',
-        title: 'Product 2',
-        price: '₹349',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
-        similarProducts: [
-            {  image: '/src/assets/images/accessories/shoe6.jpeg'},
-            {  image: '/src/assets/images/accessories/shoe7.jpeg' },
-        ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
+      id: 2,
+      image: "/src/assets/images/accessories/shoe2.jpeg",
+      title: "Kalini Fashionable Shoes",
+      price: "₹3,999",
+      discountedPrice: "₹2,499",
+      discount: "(37% OFF)",
+      sizes: "Adjustable",
+      Belt: "Leather",
+      pattern: "Regular",
+      reviews: {
+        rating: "4.3 ★",
+        totalReviews: 112,
+        fit: "True to size",
+        quality: "Good",
+        comfort: "Comfortable",
+      },
+      similarProducts: [
+        "/src/assets/images/accessories/shoe4.jpeg",
+        "/src/assets/images/accessories/shoe5.jpeg",
+        "/src/assets/images/accessories/shoe6.jpeg",
+        "/src/assets/images/accessories/shoe7.jpeg",
+      ],
     },
     {
         id: 3,
-        image: '/src/assets/images/accessories/shoe3.jpeg',
-        title: 'Product 3',
-        price: '₹599',
-        originalPrice: '₹1999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/accessories/shoe3.jpeg",
+        title: "Kalini Fashionable Shoes",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: "Adjustable",
+        Belt: "Leather",
+        pattern: "Regular",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/accessories/shoe6.jpeg'},
-            {  image: '/src/assets/images/accessories/shoe7.jpeg' },
+          "/src/assets/images/accessories/shoe5.jpeg",
+          "/src/assets/images/accessories/shoe4.jpeg",
+          "/src/assets/images/accessories/shoe2.jpeg",
+          "/src/assets/images/accessories/shoe6.jpeg",
         ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 4,
-        image: '/src/assets/images/accessories/shoe4.jpeg',
-        title: 'Product 4',
-        price: '₹799',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/accessories/shoe4.jpeg",
+        title: "Kalini Fashionable Shoes",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: "Adjustable",
+        Belt: "Leather",
+        pattern: "Regular",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/accessories/shoe8.jpeg'},
-            { image: '/src/assets/images/accessories/shoe9.jpeg' },
+          "/src/assets/images/accessories/shoe2.jpeg",
+          "/src/assets/images/accessories/shoe4.jpeg",
+          "/src/assets/images/accessories/shoe1.jpeg",
+          "/src/assets/images/accessories/shoe7.jpeg",
         ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },
+      {
         id: 5,
-        image: '/src/assets/images/accessories/shoe5.jpeg',
-        title: 'Product 5',
-        price: '₹299',
-        originalPrice: '₹899',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/accessories/shoe5.jpeg",
+        title: "Kalini Fashionable Shoes",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: "Adjustable",
+      Belt: "Leather",
+      pattern: "Regular",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/accessories/shoe2.jpeg'},
-            {  image: '/src/assets/images/accessories/shoe1.jpeg' },
+          "/src/assets/images/accessories/shoe6.jpeg",
+          "/src/assets/images/accessories/shoe2.jpeg",
+          "/src/assets/images/accessories/shoe8.jpeg",
+          "/src/assets/images/accessories/shoe5.jpeg",
         ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },     
+      {
         id: 6,
-        image: '/src/assets/images/accessories/shoe6.jpeg',
-        title: 'Product 6',
-        price: '₹699',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/accessories/shoe6.jpeg",
+        title: "Kalini Fashionable Shoes",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: "Adjustable",
+        Belt: "Leather",
+        pattern: "Regular",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            { image: '/src/assets/images/accessories/shoe4.jpeg'},
-            {  image: '/src/assets/images/accessories/shoe5.jpeg' },
+          "/src/assets/images/accessories/shoe6.jpeg",
+          "/src/assets/images/accessories/shoe2.jpeg",
+          "/src/assets/images/accessories/shoe8.jpeg",
+          "/src/assets/images/accessories/shoe5.jpeg",
         ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },  
+      {
         id: 7,
-        image: '/src/assets/images/accessories/shoe7.jpeg',
-        title: 'Product 7',
-        price: '₹549',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/accessories/shoe7.jpeg",
+        title: "Kalini Fashionable Shoes",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: "Adjustable",
+        Belt: "Leather",
+        pattern: "Regular",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            { image: '/src/assets/images/accessories/shoe3.jpeg'},
-            { image: '/src/assets/images/accessories/shoe1.jpeg' },
+          "/src/assets/images/accessories/shoe6.jpeg",
+          "/src/assets/images/accessories/shoe2.jpeg",
+          "/src/assets/images/accessories/shoe8.jpeg",
+          "/src/assets/images/accessories/shoe5.jpeg",
         ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },  
+      {
         id: 8,
-        image: '/src/assets/images/accessories/shoe8.jpeg',
-        title: 'Product 8',
-        price: '₹649',
-        originalPrice: '₹999',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/accessories/shoe8.webp",
+        title: "Kalini Fashionable Shoes",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: "Adjustable",
+        Belt: "Leather",
+        pattern: "Regular",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/accessories/shoe3.jpeg'},
-            { image: '/src/assets/images/accessories/shoe4.jpeg' },
+          "/src/assets/images/accessories/shoe6.jpeg",
+          "/src/assets/images/accessories/shoe2.jpeg",
+          "/src/assets/images/accessories/shoe8.jpeg",
+          "/src/assets/images/accessories/shoe5.jpeg",
         ],
-        shop: 'Shop B',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-    {
+      },  
+      {
         id: 9,
-        image: '/src/assets/images/accessories/shoe9.jpeg',
-        title: 'Product 9',
-        price: '₹199',
-        originalPrice: '₹599',
-        discount: '40% off',
-        fabric: 'Cotton',
-        availability: 'In Stock',
+        image: "/src/assets/images/accessories/shoe9.jpeg",
+        title: "Kalini Fashionable Shoes",
+        price: "₹3,999",
+        discountedPrice: "₹2,499",
+        discount: "(37% OFF)",
+        sizes: "Adjustable",
+      Belt: "Leather",
+      pattern: "Regular",
+        reviews: {
+          rating: "4.3 ★",
+          totalReviews: 112,
+          fit: "True to size",
+          quality: "Good",
+          comfort: "Comfortable",
+        },
         similarProducts: [
-            {  image: '/src/assets/images/accessories/shoe2.jpeg'},
-            { image: '/src/assets/images/accessories/shoe1.jpeg' },
+          "/src/assets/images/accessories/shoe6.jpeg",
+          "/src/assets/images/accessories/shoes2.jpeg",
+          "/src/assets/images/accessories/shoes8.jpeg",
+          "/src/assets/images/accessories/shoe5.jpeg",
         ],
-        shop: 'Shop A',
-        reviews: [
-            { user: 'Alice', rating: 5, comment: 'Great product!' },
-        ],
-        ratings: 4.5,
-    },
-];
+      },  
+  ];
 
-const ShoesDetails = () => {
-    const { id } = useParams();
-    const shoes = shoesDetailsData.find(p => p.id === parseInt(id));
-    const [pincode, setPincode] = useState('');
-    const [deliveryStatus, setDeliveryStatus] = useState('');
+  // Find the selected product based on the ID from the URL
+  const shoes = ShoesDetailsData .find((item) => item.id === parseInt(id));
 
-    const handlePincodeCheck = () => {
-        if (pincode === '123456') {
-            setDeliveryStatus('Delivery Available');
-        } else {
-            setDeliveryStatus('Delivery Not Available');
-        }
-    };
+  const handlePincodeChange = (e) => {
+    setPincode(e.target.value);
+  };
 
-    return (
-        <div className="products-details-container">
-    {/* Product Details */}
-    <div className="products-details">
-        <h1>Product Details :</h1>
+  const checkDelivery = () => {
+    if (pincode === "123456") {
+      setDeliveryStatus("Available for delivery");
+    } else {
+      setDeliveryStatus("Not available in your area");
+    }
+  };
 
-        {shoes ? (
-            <div>
-
-               <img src={shoes.image} alt={`shoes ${shoes.id}`} className="products-image" />
-               
-
-                <h2>Fabric: {shoes.fabric}</h2>
-                <p className='products-avail'>Availability: {shoes.availability}</p>
-
-                <h4 className='products-shop'>Shop Information :</h4>
-                <p className='shop-name'>{shoes.shop}</p>
-
-                <div className="pincode-check">
-                    <h4>Check Delivery :</h4>
-                    <input
-                        type="text"
-                        placeholder="Enter Pincode"
-                        value={pincode}
-                        onChange={(e) => setPincode(e.target.value)}
-                    />
-                    <button onClick={handlePincodeCheck}>Check</button>
-                    <p>{deliveryStatus}</p>
-                </div>
-
-                {/* Products info */}
-                <div className="products-info">
-        {shoes && (
-            <div>
-                <h4>Customer Reviews :</h4>
-                <div className="reviews-section">
-                    {shoes.reviews.map((review, index) => (
-                        <div key={index} className="review">
-                            <p><strong >{review.user}</strong>: {review.comment}</p>
-                            <p className='rating'>Rating: {review.rating}/5</p>
-                        </div>
-                    ))}
-                </div>
-
-                <h4 className='overall-rating'>Overall Rating: {shoes.ratings}/5</h4>
+  return (
+    <div className="product-page">
+      {shoes ? (
+        <>
+          <div className="product-gallery">
+            <img src={shoes.image} alt={shoes.title} className="main-image" />
+          </div>
+          <div className="product-details">
+            <h1>{shoes.title}</h1>
+            <div className="product-price">
+              <span className="price">{shoes.price}</span>
+              <span className="discounted-price">{shoes.discountedPrice}</span>
+              <span className="discount">{shoes.discount}</span>
             </div>
-        )}
-    </div>
+
+
+            <div className="actions">
+              <button className="add-to-cart">Add to Cart</button>
+              <button className="buy-now">Buy Now</button>
             </div>
-        ) : (
-            <h5>Product details not found.</h5>
-        )}
-        
-    </div>
-  
 
-    {/* Similar Products Section */}
-    <div className="similar-products-container">
-        <h4>Similar Products :</h4>
-        <div className="similar-products">
-            {shoes.similarProducts.map((similar, index) => (
-                 <div key={index}>
-                 
-                 <img src={similar.image} alt={`Similar Products ${index + 1}`} className="similar-img"/>
-                 
-                 <p>{similar.name}</p>
-             <div className="similar-product-info">
-                <div className='fabric'> <p><strong>Fabric :</strong> cotton</p></div>
-                 <div className='shop'><p><strong>Shop :</strong> Cotton Hub</p></div>
-                 <div className='price'><p><strong>Price : </strong>  Rs.259 /-{similar.price}</p></div>
-                 <div className='Quality'><p><strong>Quality :</strong> Pure Cotton</p></div>
-                 <div className='Avail'><p ><strong>Availability :</strong> In Stock</p></div>
-             </div>
-             </div>
-            ))}
-        </div>
-    </div>
-</div>
+            <div className="pincode-check">
+              <input 
+                type="text" 
+                placeholder="Enter Pincode" 
+                value={pincode} 
+                onChange={handlePincodeChange} 
+              />
+              <button onClick={checkDelivery}>Check</button>
+              {deliveryStatus && <p>{deliveryStatus}</p>}
+            </div>
 
-    );
+            <div className="product-specifications">
+              <h3>Product Details :</h3>
+              <ul>
+              <li><strong>Size:</strong> {shoes.sizes}</li>
+                <li><strong>Belt:</strong> {shoes.Belt}</li>
+                <li><strong>Pattern:</strong> {shoes.pattern}</li>
+              </ul>
+            </div>
+
+            <div className="product-reviews">
+              <h3>Customer Ratings and Reviews :</h3>
+              <p>{shoes.reviews.rating} ({shoes.reviews.totalReviews} reviews)</p>
+              <ul>
+                <li><strong>Fit:</strong> {shoes.reviews.fit}</li>
+                <li><strong>Quality:</strong> {shoes.reviews.quality}</li>
+                <li><strong>Comfort:</strong> {shoes.reviews.comfort}</li>
+              </ul>
+            </div>
+
+            <div className="similar-products">
+              <h3>Similar Products :</h3>
+              <div className="product-grid">
+                {shoes.similarProducts.map((similarProduct, index) => (
+                  <img key={index} src={similarProduct} alt="Similar Kurta" />
+                ))}
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <p>Product not found</p>
+      )}
+    </div>
+  );
 };
 
 export default ShoesDetails;

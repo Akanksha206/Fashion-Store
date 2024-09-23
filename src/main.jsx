@@ -80,7 +80,7 @@ const router =createBrowserRouter(
     <Route path='' element={<Feed/>}/>
 
     <Route path='ShortKurtis' element={<ShortKurtis/>}/>
-    <Route path="/product-details/:id" element={<KurtiDetails />} />
+    <Route path="/kurti-details/:id" element={<KurtiDetails />} />
 
     <Route path='TeesandCrops' element={<TeesandCrops/>}/>
     <Route path="/Tees-details/:id" element={<TeesandCropsDetails/>}/>

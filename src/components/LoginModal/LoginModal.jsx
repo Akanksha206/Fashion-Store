@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import '../GlobalStyles/style.css'; 
 
 const LoginModal = ({ isOpen, closeModal }) => {
@@ -16,7 +17,12 @@ const LoginModal = ({ isOpen, closeModal }) => {
           <label>Password :</label>
           <input type="password" placeholder="Enter your password" required />
           
-          <button type="submit">Login</button>
+          <div className="buttons">
+          <button type="submit">Sign In</button>
+          <NavLink to="/LoginPage">
+          <button type="submit">Sign Up</button>
+          </NavLink>
+          </div>
         </form>
       </div>
     </div>
